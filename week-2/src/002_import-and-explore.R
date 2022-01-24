@@ -33,7 +33,7 @@ median_biking <- median(df_fix[["biking"]])
 median_biking
 
 # Show All Basic Statistics Information (Central Tendency)
-summary(df)
+summary(df_fix)
 
 # Variance
 variance_biking <- var(df_fix[["biking"]])
@@ -43,11 +43,11 @@ variance_biking
 boxplot(df_fix[["biking"]])
 
 # Plot Distribution
-plot(density(df_fix[["biking"]]))
+plot(density(df_fix[["heart.disease"]]))
 
 # Check Normality QQplot
-qqnorm(df_fix[["biking"]])
-qqline(df_fix[["biking"]], col = "red")
+qqnorm(df_fix[["heart.disease"]])
+qqline(df_fix[["heart.disease"]], col = "red")
 
 # Normality Test (Shapiro-Wilk)
 shapiro.test(df_fix[["biking"]])
