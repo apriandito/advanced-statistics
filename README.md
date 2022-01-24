@@ -1,4 +1,3 @@
-# Advanced Statistics - MSM ITB (Draft)
-Modul praktek kuliah Advanced Statistics - MSM ITB
+# Advanced Statistics - MSM ITB
+Modul praktek kuliah Advanced Statistics - Master of Science in Management – SBM ITB
 
-Segera diupdate
