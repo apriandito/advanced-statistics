@@ -5,7 +5,7 @@
 install.packages("tidyverse")
 
 # Load Packages
-library(tidyverse)
+library("tidyverse")
 
 # Check Package Section
 
@@ -33,10 +33,10 @@ df_fix %>%
 
 # Scatter Plot
 df_fix %>%
-ggplot(aes(x = biking, y = heart.disease)) +
+  ggplot(aes(x = biking, y = heart.disease)) +
   geom_point(color = "red")
 
-# Correlation 
+# Correlation
 df_cor <- correlation(df_fix)
 
 # Correlation Details
@@ -49,4 +49,3 @@ summary(df_cor, redundant = TRUE)
 df_cor %>%
   summary(redundant = TRUE) %>%
   plot()
-
