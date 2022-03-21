@@ -10,7 +10,6 @@ education <- read_csv("data/education.csv")
 # Print Data
 print(education)
 
-
 # Create Construct --------------------------------------------------------
 
 # Create Measurement Model
@@ -25,7 +24,6 @@ education_sm <- relationships(
   paths(from = "Tutoring", to = c("Value","Satisfaction")),
   paths(from = "Advising",to = c("Value","Satisfaction")),
   paths(from = "Value",to = "Satisfaction"))
-
 
 # PLS ---------------------------------------------------------------------
 
@@ -45,15 +43,8 @@ ms$loadings
 # Composite Reliability
 ms$reliability 
 
-# Cross Loadings / Discriminant Validity
-ms$cross_loadings 
-
-# Multicolinearity
-model_summary$vif_items
-
 # R Square
-model_summary$path 
-
+ms$path 
 
 # Bootstrapping -----------------------------------------------------------
 
