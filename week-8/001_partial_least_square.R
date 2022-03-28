@@ -14,16 +14,18 @@ print(education)
 
 # Create Measurement Model
 education_mm <- constructs(
-  reflective("Advising", multi_items("adv.",c("comp","acces","comm","qual"))),
-  reflective("Tutoring", multi_items("tut.",c("prof","sched","stud","qual"))),
-  reflective("Value", multi_items("val.",c("devel","deci","meet", "info"))),
-  reflective("Satisfaction", multi_items("sat.",c("glad","expe","over"))))
+  reflective("Advising", multi_items("adv.", c("comp", "acces", "comm", "qual"))),
+  reflective("Tutoring", multi_items("tut.", c("prof", "sched", "stud", "qual"))),
+  reflective("Value", multi_items("val.", c("devel", "deci", "meet", "info"))),
+  reflective("Satisfaction", multi_items("sat.", c("glad", "expe", "over")))
+)
 
 # Create Structural Model
 education_sm <- relationships(
-  paths(from = "Tutoring", to = c("Value","Satisfaction")),
-  paths(from = "Advising",to = c("Value","Satisfaction")),
-  paths(from = "Value",to = "Satisfaction"))
+  paths(from = "Tutoring", to = c("Value", "Satisfaction")),
+  paths(from = "Advising", to = c("Value", "Satisfaction")),
+  paths(from = "Value", to = "Satisfaction")
+)
 
 # PLS ---------------------------------------------------------------------
 
@@ -37,20 +39,25 @@ education_pls <- estimate_pls(
 # See Model Summary
 ms <- summary(education_pls)
 
-# Loadings 
+# Loadings
 ms$loadings
 
+# Multicolinearity
+ms$vif_antecedents
+
 # Composite Reliability
-ms$reliability 
+ms$reliability
 
 # R Square
-ms$path 
+ms$path
 
 # Bootstrapping -----------------------------------------------------------
 
 # Botsraping
-education_bm <- bootstrap_model(seminr_model = education_pls,
-                                seed = 123)
+education_bm <- bootstrap_model(
+  seminr_model = education_pls,
+  seed = 123
+)
 
 # Summary of bootsrap model
 summary(education_bm)
