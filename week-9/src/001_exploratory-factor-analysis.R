@@ -19,7 +19,7 @@ skim(df)
 
 # Select Data
 df_factor <- df %>%
-  select(-c(gender, education, age))
+  dplyr::select(-c(gender, education, age))
 
 # Create Correlation
 cor_factor <- cor(df_factor)
